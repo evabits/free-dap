@@ -1,7 +1,7 @@
 ## EVABITS
 
 Create an embedded programmer using a SAMD11 or SAMD21.
-When using a trinket with bootloader, do the following to clear the BOOTPROT fuses/bits with edbg:
+When using a device (e.g. trinket M0) with bootloader, do the following to clear the BOOTPROT fuses/bits with edbg:
 
 ```sh
 #read bootprot fuses:
@@ -10,6 +10,22 @@ edbg -c 400 -t samd21 -F r0,2:0
 edbg -c 400 -t samd21 -F w0,2:0,7
 #program file:
 edbg -bpve -c 800 -t <target_name, e.g. "samd21" or "samd11"> -f <filename>
+```
+
+Goto the platform of your choice and type make, to create the binaries:
+```sh
+cd platform/samd21/make
+make
+cd build
+ls free_dap*
+```
+
+The Makefiles require the gcc-arm-none-eabi toolchain. Find them at:
+https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
+and follow the instructions in the readme therein. To add to your PATH variable, append the following to .bashrc or .zshrc:
+```sh
+export PATH=$PATH:<install_dir>/gcc-arm-none-eabi-9-2020-q2-update/bin
+
 ```
 
 
