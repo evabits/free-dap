@@ -1,3 +1,18 @@
+## EVABITS
+
+Create an embedded programmer using a SAMD11 or SAMD21.
+When using a trinket with bootloader, do the following to clear the BOOTPROT fuses/bits with edbg:
+
+```sh
+#read bootprot fuses:
+edbg -c 400 -t samd21 -F r0,2:0
+#clear bootprot fuses:
+edbg -c 400 -t samd21 -F w0,2:0,7
+#program file:
+edbg -bpve -c 800 -t <target_name, e.g. "samd21" or "samd11"> -f <filename>
+```
+
+
 # Free-DAP
 
 This is a free and open implementation of the CMSIS-DAP debugger firmware.
