@@ -110,6 +110,19 @@ int main(void)
   dap_init();
   usb_init();
 
+  //signal start to user by blinking LED
+  uint32_t delay = 480000;
+  for ( int i=0;i<20;i++ ) {
+    HAL_GPIO_LED_clr();
+    delay = 4800000;
+    while (--delay)
+      asm("nop");
+    HAL_GPIO_LED_set();
+    delay = 4800000;
+    while (--delay)
+      asm("nop");
+  }
+
   while (1);
 
   return 0;

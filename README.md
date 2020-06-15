@@ -28,6 +28,8 @@ export PATH=$PATH:<install_dir>/gcc-arm-none-eabi-9-2020-q2-update/bin
 
 ```
 
+If you do use a trinket M0, please find the pinout at: https://learn.adafruit.com/assets/49778.
+The pin mappings are in dap_config.h.
 
 # Free-DAP
 
